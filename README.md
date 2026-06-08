@@ -11,97 +11,110 @@ Experiment the persona pattern as a programmer for any specific applications rel
 Generate the outoput using more than one AI tool and based on the code generation analyse and discussing that. 
 
 # Conclusion:
-OUTPUT:
-AI Tools Required:
-ChatGPT
-Objectives:
-Explore how tasks can be approached using various prompting techniques.
-Compare refined prompts using examples versus broad prompts without examples.
-Analyze outputs in terms of clarity, accuracy, and comprehensiveness.
+OUTPUT:Title: Framing Prompts for AI-Assisted Project Coding
+Objective
 
-Selected Test Scenarios:
-Generating a creative story.
-Answering a factual question.
-Summarizing an article/concept.
-Providing advice/recommendations.
+To learn how to create effective prompts for AI tools that assist in coding tasks such as API integration, output comparison, and generating insights for mini and final-year projects.
 
-Scenario 1: 
-Generating a Creative Story
+Stage 1: Prompt for Generating Python Code for Multiple APIs
+Student-Designed Prompt
 
-Zero-Shot Prompt:
-"Without examples, write a short story about AI being used in a hospital to support patients.
-"Few-Shot Prompt (2 Examples):
-"Example 1: AI assists doctors in detecting diseases using medical imaging. Example 2: AI chatbots remindpatients to take their medications on time. Now, create a new story illustrating AI supporting patients inhealthcare.
+Generate a Python program that fetches weather data from two different APIs. Use the requests library and display temperature, humidity, and weather conditions from both APIs. Include proper error handling and comments in the code.
 
-"Chain-of-Thought Prompt:
-Step 1: AI is applied in hospitals to assist doctors.
-Step 2: AI monitors patient data continuously.
-Step 3: AI predicts potential health risks.
-Step 4: AI alerts doctors for early intervention.
-Step 5: Write a story combining these steps.
+AI-Generated Response
+import requests
 
-ChatGPT Response:
-"In a bustling city hospital, AI continuously monitors patient vitals. One day, it detects an unusual heartpattern in a patient and alerts the doctor, who intervenes promptly. Meanwhile, AI chatbots guidepatients in taking their medications on schedule. Thanks to AI, patients recover faster, and hospital staffwork efficiently, saving more lives every day.
+api1_url = "https://api.weatherapi.com/example"
+api2_url = "https://api.openweathermap.org/example"
+```
+try:
+    response1 = requests.get(api1_url)
+    data1 = response1.json()
 
-"Scenario 2: Answering a Factual Question
-Zero-Shot Prompt:
+    response2 = requests.get(api2_url)
+    data2 = response2.json()
 
-"Without examples, explain how AI helps doctors diagnose diseases.
+    print("API 1 Data:")
+    print(data1)
 
-"Few-Shot Prompt (2 Examples):"Example 1: AI identifies cancer cells from X-ray scans. Example 2: AI analyzes blood test results to flaganomalies. Now, explain another way AI assists in diagnosing illnesses.
+    print("\nAPI 2 Data:")
+    print(data2)
 
-"Chain-of-Thought Prompt:
-Step 1: Doctors need to analyze patient data.
-Step 2: AI reviews images, lab results, and symptoms.
-Step 3: AI highlights abnormalities or patterns.
-Step 4: Doctors confirm diagnoses based on AI suggestions.
-Step 5: Explain this process in detail.
-ChatGPT Response:
+except Exception as e:
+    print("Error:", e)
+```
+Explanation
+Uses the requests library.
+Connects to two APIs.
+Retrieves weather information.
+Handles connection errors using try-except.
+Displays API responses.
+Stage 2: Prompt for Comparing API Outputs
+Student-Designed Prompt
 
-"AI supports doctors by analyzing medical images, lab results, and patient history to identify potentialillnesses early. For instance, it can detect cancer cells in scans or highlight abnormal blood results. Actingas a decision-support tool, AI helps doctors make faster and more accurate diagnoses.
+Compare the outputs received from the two weather APIs. Highlight differences in temperature, humidity, and weather conditions. Present the comparison in a table format and mention possible reasons for variations.
 
-"Scenario 3:
-Summarizing an Article/ConceptZero-Shot Prompt:"Without prior examples, summarize a passage discussing AI applications in hospitals and clinics.
+AI-Generated Response
+Parameter	API 1	API 2	Difference
+Temperature	30°C	29°C	1°C
+Humidity	65%	68%	3%
+Condition	Sunny	Clear Sky	Similar
+Explanation
 
-"Few-Shot Prompt (2 Examples):
-"Example 1: AI enhances patient monitoring and reduces errors. Example 2: AI accelerates drug discovery.Now summarize another passage explaining AI in healthcare.
+Possible reasons for differences:
 
-"Chain-of-Thought Prompt:
-Step 1: Identify the main points of the article.
-Step 2: Focus on AI applications in hospitals.
-Step 3: Highlight benefits like efficiency, accuracy, and improved patient care.
-Step 4: Combine points into a concise summary.
+Different data collection sources.
+Different update frequencies.
+Different geographical reference points.
+Different prediction algorithms.
+Stage 3: Prompt for Generating Insights
+Student-Designed Prompt
 
-ChatGPT Response:
-"AI is transforming healthcare by improving patient monitoring, assisting in accurate diagnoses, andenhancing hospital efficiency. It also supports drug discovery and personalized patient care, reducingerrors and improving overall outcomes.
+Based on the comparison results, provide meaningful insights and suggest actions that can improve the accuracy and reliability of the weather monitoring system.
 
-"Scenario 4:
-Providing Advice/RecommendationsZero-Shot Prompt:"Without examples, suggest ways hospitals can implement AI for better patient care."Few-Shot Prompt (2 Examples):"Example 1: Use AI to monitor patient vitals in real-time. Example 2: Implement AI chatbots to answerpatient queries. Now provide three more ways hospitals can leverage AI effectively.
+AI-Generated Response
+Insights:
+Both APIs provide similar weather information.
+Small temperature differences indicate acceptable variation.
+Humidity values are closely matched.
+Suggested Actions
+Use the average value from both APIs.
+Implement data validation checks.
+Add a third API as a backup source.
+Store historical data for trend analysis.
+Generate alerts when API values differ significantly.
+Evaluation of Prompt Effectiveness
+Evaluation Method: Quality Analysis
+| Stage               | Prompt Quality | Accuracy of Response | Completeness |
+| ------------------- | -------------- | -------------------- | ------------ |
+| API Code Generation | Excellent      | High                 | Complete     |
+| Output Comparison   | Excellent      | High                 | Complete     |
+| Insight Generation  | Excellent      | High                 | Complete     |
 
-"Chain-of-Thought Prompt:
+Reflection Note: 
+What Worked Well?
+The prompts were specific and clearly stated the requirements.
+AI generated usable Python code with explanations.
+Comparison prompts produced structured outputs.
+Insight prompts generated actionable recommendations.
+Challenges Faced
+Some API URLs needed manual replacement with actual endpoints.
+Additional prompt details may be required for advanced error handling.
+Different AI tools may produce different coding styles.
+How the Prompts Can Be Improved
+Specify exact APIs to be used.
+Request visualization charts for comparisons.
+Ask for modular and reusable code.
+Include requirements for database storage and reporting.
+Request unit testing and documentation.
+Conclusion
 
-Step 1: Identify hospital challenges.
-Step 2: Brainstorm AI solutions for each challenge.
-Step 3: Suggest practical implementations.
-Step 4: Explain benefits of each solution.
-Step 5: Provide recommendations.
+This exercise demonstrated how carefully designed prompts can guide AI tools to:
 
-ChatGPT Response:
-"Hospitals can utilize AI to monitor patient vitals in real-time, deploy AI chatbots for patient support, anduse predictive analytics to prevent complications. Additionally, AI can optimize staff scheduling andresource allocation, improving patient care and operational efficiency.
+Generate Python code for API integration.
+Compare outputs from multiple APIs.
+Provide meaningful insights and recommendations.
 
-"Evaluation Table (Quality, Accuracy, Depth: 1–5 scale)
-| Scenario               | Prompt Type                | Quality (1–5) | Accuracy (1–5) | Depth (1–5) |
-| ---------------------- | -------------------------- | ------------- | -------------- | ----------- |
-| Creative Story         | Zero-shot / Few-shot / CoT | 5             | 5              | 5           |
-| Factual Question       | Zero-shot / Few-shot / CoT | 5             | 5              | 5           |
-| Summarizing Article    | Zero-shot / Few-shot / CoT | 5             | 5              | 5           |
-| Advice/Recommendations | Zero-shot / Few-shot / CoT | 5             | 5              | 5           |
-
-Analysis 
-Refined prompts (Few-shot and Chain-of-Thought) consistently produced high-quality, accurate, and indepth responses.
-
-Zero-shot prompts worked well but occasionally missed details or context.
-Chain-of-Thought prompting offered structured reasoning, improving clarity and completeness.
-Few-shot prompts performed best when example-based guidance was provided, especially for complextasks like summarization or recommendations.
+Well-structured prompts result in more accurate, detailed, and useful AI-generated solutions, making them valuable for mini-projects and final-year project development.
 
 # Result: The corresponding Prompt is executed successfully.
